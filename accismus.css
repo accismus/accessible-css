@@ -1,0 +1,47 @@
+* {
+	box-sizing: border-box;
+	font-size: 18pt;
+	font-family: "Verdana", "Arial", sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.725rem;
+}
+
+/*
+ * Remove variations in html/body spacing
+ */
+ 
+html, body { margin: 0; padding: 0; }
+
+/*
+ * Links
+ */
+
+@media only screen {
+	a { color: #3333FF; line-height: 1rem; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+	a:visited { border-bottom-color: #7D27CE; color: #7D27CE; }
+	a:active { color: #E60000; }
+	a:hover, a:focus, a:active { outline: 2px dashed #000000; }
+}
+@media only print {
+	a { color: black; text-decoration: none; }
+	a::after { content: " (" attr(href) ") "; }
+}
+
+/*
+ * Screenreader
+ */
+
+@media screen {
+	.screenreader {
+		position: absolute;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+}
+@media print {
+	.screenreader { display: none; }
+}
