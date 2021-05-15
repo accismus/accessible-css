@@ -18,14 +18,268 @@ html, body { margin: 0; padding: 0; }
  */
 
 @media only screen {
-	a { color: #3333FF; line-height: 1rem; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+	a { color: #3333FF; line-height: 1rem; padding-bottom: 3px; border-bottom: 0.125rem solid transparent; }
 	a:visited { border-bottom-color: #7D27CE; color: #7D27CE; }
 	a:active { color: #E60000; }
 	a:hover, a:focus, a:active { outline: 2px dashed #000000; }
+	span.external-link-wrapper::after { content: ' \1F517'; }
 }
 @media only print {
 	a { color: black; text-decoration: none; }
 	a::after { content: " (" attr(href) ") "; }
+}
+
+/*
+ * Headings
+ */
+
+h1, h2, h3, h4, h5, h6 { font-weight: bold; margin: 0; }
+@supports (margin-block-end: 1.725rem) {
+	h1, h2, h3, h4, h5, h6 { margin-block-end: 0; }
+}
+@supports (margin-block-start: 1.725rem) {
+	h1, h2, h3, h4, h5, h6 { margin-block-start: 0; }
+}
+@supports (margin-inline-end: 1.725rem) {
+	h1, h2, h3, h4, h5, h6 { margin-inline-end: 0; }
+}
+@supports (margin-inline-start: 1.725rem) {
+	h1, h2, h3, h4, h5, h6 { margin-inline-start: 0; }
+}
+
+@media only screen {
+	h1:focus, h1:hover, h2:focus, h2:hover, h3:focus, h3:hover,
+	h4:focus, h4:hover, h5:focus, h5:hover, h6:focus, h6:hover { outline: 0.125rem dashed #000000; }
+}
+
+body[data-accismus-heading-levels] h1,
+body[data-accismus-heading-levels] h2,
+body[data-accismus-heading-levels] h3,
+body[data-accismus-heading-levels] h4,
+body[data-accismus-heading-levels] h5,
+body[data-accismus-heading-levels] h6 { font-size: 1rem; line-height: 1rem; }
+
+body[data-accismus-heading-blocks] h1,
+body[data-accismus-heading-blocks] h2,
+body[data-accismus-heading-blocks] h3,
+body[data-accismus-heading-blocks] h4,
+body[data-accismus-heading-blocks] h5,
+body[data-accismus-heading-blocks] h6 { font-size: 1.5rem; line-height: 1.5rem; padding: 0.25rem; border-color: #000; }
+
+body[data-accismus-heading-blocks] h1 { background: #000; color: #fff; border-style: solid; border-width: 0.25rem; }
+body[data-accismus-heading-blocks] h2 { background: #fff; color: #000; border-style: solid; border-width: 0.25rem; }
+body[data-accismus-heading-blocks] h3 { background: #fff; color: #000; border-style: double; border-width: 0.25rem; }
+body[data-accismus-heading-blocks] h4 { background: #fff; color: #000; border-style: dashed; border-width: 0.25rem; }
+@supports (background: repeating-linear-gradient(#e66465, #9198e5)) {
+	body[data-accismus-heading-blocks] h4 {
+		border: none;
+		background-image:
+			repeating-linear-gradient(0deg, #000000, #000000 25px, transparent 25px, transparent 37px, #000000 37px),
+			repeating-linear-gradient(90deg, #000000, #000000 25px, transparent 25px, transparent 37px, #000000 37px),
+			repeating-linear-gradient(180deg, #000000, #000000 25px, transparent 25px, transparent 37px, #000000 37px),
+			repeating-linear-gradient(270deg, #000000, #000000 25px, transparent 25px, transparent 37px, #000000 37px);
+		background-size: 0.25rem 100%, 100% 0.25rem, 0.25rem 100%, 100% 0.25rem;
+		background-position: 0 0, 0 0, 100% 0, 0 100%;
+		background-repeat: no-repeat;
+		padding: 0.5rem;
+	}
+}
+body[data-accismus-heading-blocks] h5 { background: #fff; color: #000; border-style: dotted; border-width: 0.25rem; }
+body[data-accismus-heading-blocks] h6 { background: #fff; color: #000; border-style: solid; border-width: 0.125rem; padding: 0.375rem; }
+
+body[data-accismus-heading-levels] h1:after,
+body[data-accismus-heading-levels] h2:after,
+body[data-accismus-heading-levels] h3:after,
+body[data-accismus-heading-levels] h4:after,
+body[data-accismus-heading-levels] h5:after,
+body[data-accismus-heading-levels] h6:after {
+	content: " Incorrect data-accismus-heading-level attribute on page body tag";
+	color: #FF0000;
+	font-weight: bold;
+}
+
+body:not([data-accismus-heading-levels], [data-accismus-heading-blocks]) h1,
+body[data-accismus-heading-levels="6"] h1 { font-size: 2.5rem; line-height: 2.5rem; }
+
+body:not([data-accismus-heading-levels], [data-accismus-heading-blocks]) h2,
+body[data-accismus-heading-levels="6"] h2,
+body[data-accismus-heading-levels="5"] h1 { font-size: 2.25rem; line-height: 2.25rem; }
+
+body:not([data-accismus-heading-levels], [data-accismus-heading-blocks]) h3,
+body[data-accismus-heading-levels="6"] h3,
+body[data-accismus-heading-levels="5"] h2,
+body[data-accismus-heading-levels="4"] h1 { font-size: 2rem; line-height: 2rem; }
+
+body:not([data-accismus-heading-levels], [data-accismus-heading-blocks]) h4,
+body[data-accismus-heading-levels="6"] h4,
+body[data-accismus-heading-levels="5"] h3,
+body[data-accismus-heading-levels="4"] h2,
+body[data-accismus-heading-levels="3"] h1 { font-size: 1.75rem; line-height: 1.75rem; }
+
+body:not([data-accismus-heading-levels], [data-accismus-heading-blocks]) h5,
+body[data-accismus-heading-levels="6"] h5,
+body[data-accismus-heading-levels="5"] h4,
+body[data-accismus-heading-levels="4"] h3,
+body[data-accismus-heading-levels="3"] h2,
+body[data-accismus-heading-levels="2"] h1 { font-size: 1.5rem; line-height: 1.5rem; }
+
+body:not([data-accismus-heading-levels], [data-accismus-heading-blocks]) h6,
+body[data-accismus-heading-levels="6"] h6,
+body[data-accismus-heading-levels="5"] h5,
+body[data-accismus-heading-levels="4"] h4,
+body[data-accismus-heading-levels="3"] h3,
+body[data-accismus-heading-levels="2"] h2,
+body[data-accismus-heading-levels="1"] h1 { font-size: 1.25rem; line-height: 1.25rem; }
+
+body[data-accismus-heading-levels="1"] h1:after,
+body[data-accismus-heading-levels="2"] h1:after,
+body[data-accismus-heading-levels="3"] h1:after,
+body[data-accismus-heading-levels="4"] h1:after,
+body[data-accismus-heading-levels="5"] h1:after,
+body[data-accismus-heading-levels="6"] h1:after,
+body[data-accismus-heading-levels="2"] h2:after,
+body[data-accismus-heading-levels="3"] h2:after,
+body[data-accismus-heading-levels="4"] h2:after,
+body[data-accismus-heading-levels="5"] h2:after,
+body[data-accismus-heading-levels="6"] h2:after,
+body[data-accismus-heading-levels="3"] h3:after,
+body[data-accismus-heading-levels="4"] h3:after,
+body[data-accismus-heading-levels="5"] h3:after,
+body[data-accismus-heading-levels="6"] h3:after,
+body[data-accismus-heading-levels="4"] h4:after,
+body[data-accismus-heading-levels="5"] h4:after,
+body[data-accismus-heading-levels="6"] h4:after,
+body[data-accismus-heading-levels="5"] h5:after,
+body[data-accismus-heading-levels="6"] h5:after,
+body[data-accismus-heading-levels="6"] h6:after { content: ""; }
+
+/*
+ * All List Types
+ */
+
+ul, ol, dl {
+	display: block;
+	margin: 1.725rem 0;
+	padding: 0;
+}
+
+@supports (margin-block-end: 1.725rem) {
+	ul, ol, dl {
+		margin-bottom: 0;
+		margin-block-end: 1.725rem;
+	}
+}
+@supports (margin-block-start: 1.725rem) {
+	ul, ol, dl {
+		margin-top: 0;
+		margin-block-start: 1.725rem;
+	}
+}
+@supports (margin-inline-end: 1.725rem) {
+	ul, ol, dl {
+		margin-right: 0;
+		margin-inline-end: 0;
+	}
+}
+@supports (margin-inline-start: 1.725rem) {
+	ul, ol, dl {
+		margin-left: 0;
+		margin-inline-start: 0;
+	}
+}
+
+/*
+ * Unordered List
+ */
+
+ul {
+	list-style-position: inside;
+	list-style-type: disc;
+}
+
+/*
+ * Unordered and Ordered Lists
+ */
+
+li { display: list-item; padding: 0; }
+@supports (padding-inline-start: 1.725rem) {
+	li { padding-inline-start: 0; }
+}
+@supports selector(::marker) {
+	li::marker { width: 1.725rem; }
+}
+
+/*
+ * Definition List
+ */
+
+dt, dd { display: block; }
+dd { margin-left: 0; padding-left: 1.725rem; }
+@supports (margin-inline-start: 1.725rem) {
+	dd {
+		padding-left: 0;
+		margin-inline-start: 1.725rem;
+	}
+}
+
+@supports (float: left) {
+	dl.inline-pairs dt,
+	dl.inline-pairs-grid dt {
+		float: left;
+		clear: left;
+		margin-right: 0.25rem;
+		font-weight: bold;
+	}
+	dl.inline-pairs dt::after,
+	dl.inline-pairs-grid dt::after {
+		content: ":";
+	}
+	dl.inline-pairs dd,
+	dl.inline-pairs-grid dd {
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+@supports (display: grid) {
+	dl.inline-pairs-grid { display: grid; grid-template-columns: max-content auto; }
+	dl.inline-pairs-grid dt { grid-column-start: 1; }
+	dl.inline-pairs-grid dt::after { content: ":"; }
+	dl.inline-pairs-grid dd { grid-column-start: 2; }
+}
+
+/*
+ * Paragraphs
+ */
+
+p {
+	display: block;
+	margin: 1.725rem 0;
+	padding: 0;
+}
+
+@aupports (margin-block-end: 1.725rem) {
+	p {
+		margin-bottom: 0;
+		margin-block-end: 1.725rem;
+	}
+}
+@supports (margin-block-start: 1.725rem) {
+	p {
+		margin-top: 0;
+		margin-block-start: 1.725rem;
+	}
+}
+@supports (margin-inline-end: 1.725rem) {
+	p {
+		margin-right: 0;
+		margin-inline-end: 0;
+	}
+}
+@supports (margin-inline-start: 1.725rem) {
+	p {
+		margin-left: 0;
+		margin-inline-start: 0;
+	}
 }
 
 /*
